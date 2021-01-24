@@ -1,0 +1,40 @@
+@import './settings/colors';
+@import './settings/media';
+
+.header-buttons {
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+    .button {
+        color: $c-light-grey-login;
+        font-size: 0.875rem;
+        margin-left: 20px;
+        padding: 10px;
+        text-decoration: none;
+
+        &:hover {
+            border: 0.75px solid #FAD648;
+        }
+    }
+}
+
+.header-links-list {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+
+    .nav-link {
+        cursor: pointer;
+        margin-left: 20px;
+        padding: 10px 20px;
+        @media #{$tablet} {
+            padding: 5px 10px;
+            margin-left: 25px;
+        }
+
+        &:hover {
+            border: 0.75px solid $c-grey;
+        }
+        
+    }
+}

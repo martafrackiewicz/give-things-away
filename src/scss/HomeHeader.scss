@@ -1,0 +1,72 @@
+@import './settings/colors';
+@import './settings/media';
+
+.header {
+
+    &-nav {
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    &-main-section {
+        height: calc(100vh - 130px);
+        display: flex;
+
+        &-image {
+            width: 50%;
+            background-image: url(../assets/Home-Hero-Image.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            @media #{$large-screen} {
+                background-position: 200% center;
+            }
+            @media #{$laptop} {
+                background-position: 100% center;
+            }
+            @media #{$tablet} {
+                background-position: 100% center;
+            }
+
+        }
+
+        &-cta {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &-buttons {
+            width: 100%;
+            display: flex;
+            
+            .button {
+                width: 50%;
+                font-size: 2.25em;
+                font-weight: 300;
+                text-decoration: none;
+                text-transform: uppercase;
+                text-align: center;
+                line-height: 1.25;
+                border: 0.75px solid $c-grey;
+                color: inherit;
+                padding: 13px 20px;
+                margin: 5% 10px;
+                @media #{$large-screen} {
+                    padding: 13px 35px;
+                }
+                @media #{$laptop} {
+                    font-size: 1.5em;
+                    padding: 13px 32px;
+                }
+                @media #{$tablet} {
+                    font-size: 1.25em;
+                }
+            }
+        }
+    }
+
+}
