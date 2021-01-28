@@ -1,0 +1,86 @@
+@import "./settings/colors";
+@import "./settings/media";
+
+.simple-steps {
+    height: 100vh;
+    margin-top: 55px;
+
+    &-wrapper {
+        width: 75%;
+        display: flex;
+    }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 10vh;
+
+        .button {
+            font-size: 2.25em;
+            font-weight: 300;
+            text-decoration: none;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.25;
+            border: 0.75px solid $c-grey;
+            color: inherit;
+            padding: 13px 20px;
+        }
+    }
+}
+
+.simple-steps-content {
+    background-color: $c-light-grey-bg;
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &-element {
+        margin: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;;
+
+        .step-icon {
+            width: 83px;
+            height: 83px;
+            margin-bottom: 10px;
+            @media #{$laptop} {
+                width: 70px;
+                height: 70px;
+            }
+            @media #{$tablet} {
+                width: 65px;
+                height: 65px;
+            }
+        }
+
+        .step-title {
+            font-size: 18px;
+            text-align: center;
+            @media #{$laptop} {
+                font-size: 16px;
+            }
+            @media #{$tablet} {
+                font-size: 14px;
+            }
+        }
+
+        .step-hr {
+            width: 70px;
+            margin: 10px 0;
+        }
+
+        .step-text {
+            font-size: 16px;
+            text-align: center;
+            @media #{$laptop} {
+                font-size: 14px;
+            }
+            @media #{$tablet} {
+                font-size: 11px;
+            }
+        }
+    }
+}
