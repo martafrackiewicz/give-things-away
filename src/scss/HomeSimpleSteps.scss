@@ -4,6 +4,9 @@
 .simple-steps {
     height: 100vh;
     margin-top: 55px;
+    @media #{$tablet} {
+        height: 70vh;
+    }
 
     &-wrapper {
         width: 75%;
@@ -14,6 +17,9 @@
         display: flex;
         justify-content: center;
         margin-top: 10vh;
+        @media #{$tablet} {
+           margin-top: 5vh;
+        }
 
         .button {
             font-size: 2.25em;
@@ -24,7 +30,10 @@
             line-height: 1.25;
             border: 0.75px solid $c-grey;
             color: inherit;
-            padding: 13px 20px;
+            padding: 18px 30px;
+            @media #{$tablet} {
+                font-size: 1.75em;
+            }
         }
     }
 }
