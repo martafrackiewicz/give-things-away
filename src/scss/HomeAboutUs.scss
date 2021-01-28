@@ -1,0 +1,42 @@
+@import "./settings/colors";
+@import "./settings/media";
+
+.about-us {
+    display: flex;
+    height: 100vh;
+
+    &-content {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $c-light-grey-bg;
+    }
+
+    &-text {
+        font-size: 30px;
+        margin: 4vh 6vw;
+        letter-spacing: -0.6px;
+        text-align: center;
+        line-height: 1.5;
+        @media #{$laptop} {
+            font-size: 24px;
+        }
+        @media #{$tablet} {
+            font-size: 20px;
+        }
+    }
+
+    &-signature {
+        margin-left: auto;
+        margin-right: 5vw;
+    }
+
+    &-bg {
+        width: 50%;
+        background-image: url(../assets/People.png);
+        background-size: cover;
+        background-position: center;
+    }
+}
