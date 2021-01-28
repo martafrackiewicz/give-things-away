@@ -17,6 +17,9 @@
         display: flex;
         justify-content: center;
         margin-top: 10vh;
+        @media #{$laptop} {
+           margin-top: 12vh;
+        }
         @media #{$tablet} {
            margin-top: 5vh;
         }
