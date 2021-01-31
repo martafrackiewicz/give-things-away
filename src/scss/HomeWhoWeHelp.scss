@@ -40,6 +40,7 @@
         cursor: pointer;
         margin-left: 20px;
         padding: 10px 20px;
+        border: 0.75px solid transparent;
 
         &:hover {
             border: 0.75px solid $c-grey;

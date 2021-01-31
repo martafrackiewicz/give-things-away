@@ -6,7 +6,7 @@ import "../scss/HomeHeader.scss";
 
 const HomeHeader = () => {
     return (
-        <div class="container">
+        <div className="container">
             <div className="header-nav">
                 <HomeHeaderNav />
             </div>
