@@ -1,0 +1,54 @@
+{
+    "foundations":
+    [
+        {
+            "name": "Fundacja \"Dbam o zdrowie\"",
+            "description": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+            "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+                "name": "Fundacja \"Dla dzieci\"",
+                "description": "Cel i misja: Pomoc dzieciom z ubogich rodzin.",
+                "things": "ubrania, meble, zabawki"
+        },
+        {
+                "name": "Fundacja \"Bez domu\"",
+                "description": "Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.",
+                "things": "ubrania, jedzenie, ciepłe koce"
+        }
+    ],
+    "organizations": [
+        {
+            "name": "Organizacja \"Dbam o zdrowie\"",
+            "description": "Lorem ipsum dolor sit amet dolor. Donec iaculis. Pellentesque placerat.",
+            "things": "ubrania, meble, zabawki"
+        },
+        {
+            "name": "Organizacja \"Dla dzieci\"",
+            "description": "Lorem ipsum dolor sit amet dolor. Donec iaculis. Pellentesque placerat.",
+            "things": "ubrania, jedzenie, ciepłe koce"
+        },
+        {
+            "name": "Organizacja \"Bez domu\"",
+            "description": "Lorem ipsum dolor sit amet dolor. Donec iaculis. Pellentesque placerat.",
+            "things": "ubrania, meble, zabawki, jedzenie"
+        }
+    ],
+    "locals": [
+        {
+            "name": "Zbiórka \"Nulla facilisi\"",
+            "description": "Nunc massa quis metus. Integer adipiscing metus.",
+            "things": "jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+            "name": "Zbiórka \"Nulla facilisi\"",
+            "description": "Nunc massa quis metus. Integer adipiscing metus.",
+            "things": "ubrania, zabawki"
+        },
+        {
+            "name": "Zbiórka \"Nulla facilisi\"",
+            "description": "Nunc massa quis metus. Integer adipiscing metus.",
+            "things": "ciepłe koce, karma, miski"
+        }
+    ]
+}
