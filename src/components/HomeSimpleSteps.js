@@ -9,7 +9,7 @@ import icon4 from "../assets/icon4.png";
 
 const HomeSimpleSteps = () => {
     return (
-        <section className="simple-steps">
+        <section className="simple-steps" id="simple-steps">
             <Heading text="Wystarczą 4 proste kroki" />
             <div className="simple-steps-content">
                 <div className="simple-steps-wrapper">

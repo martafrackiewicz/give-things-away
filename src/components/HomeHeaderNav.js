@@ -17,7 +17,7 @@ const HeaderNav = () => {
                         to="/"
                         spy={true}
                         smooth={true}
-                        offset={-70}
+                        offset={0}
                         duration={500}
                     >Start</NavLink></li>
                     <li className="nav-link"><NavLink
@@ -25,7 +25,7 @@ const HeaderNav = () => {
                         to="simple-steps"
                         spy={true}
                         smooth={true}
-                        offset={-70}
+                        offset={0}
                         duration={500}
                     >O co chodzi?</NavLink></li>
                     <li className="nav-link"><NavLink
@@ -33,15 +33,15 @@ const HeaderNav = () => {
                         to="about-us"
                         spy={true}
                         smooth={true}
-                        offset={-70}
+                        offset={0}
                         duration={500}
                     >O nas</NavLink></li>
                     <li className="nav-link"><NavLink
                         activeClass="active"
-                        to="organisations"
+                        to="who-we-help"
                         spy={true}
                         smooth={true}
-                        offset={-70}
+                        offset={0}
                         duration={500}
                     >Fundacja i organizacje</NavLink></li>
                     <li className="nav-link"><NavLink
@@ -49,7 +49,7 @@ const HeaderNav = () => {
                         to="contact-form"
                         spy={true}
                         smooth={true}
-                        offset={-70}
+                        offset={0}
                         duration={500}
                     >Kontakt</NavLink></li>
                 </ul>

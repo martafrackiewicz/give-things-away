@@ -5,7 +5,7 @@ import "../scss/HomeAboutUs.scss"
 
 const HomeAboutUs = () => {
     return (
-        <section className="about-us">
+        <section className="about-us" id="about-us">
             <div className="about-us-content">
                 <Heading text="O nas"/>
                 <p className="about-us-text">Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.</p>
