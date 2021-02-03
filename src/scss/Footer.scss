@@ -1,0 +1,28 @@
+.footer-container {
+    position: relative;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    background-color: transparent;
+    padding-bottom: 10px;
+
+    &-copy {
+        text-align: center;
+        position: absolute;
+        top: 20%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0 auto;
+    }
+
+    &-social {
+        float: right;
+
+        .link {
+            margin: 0 10px;
+        }
+    }
+}

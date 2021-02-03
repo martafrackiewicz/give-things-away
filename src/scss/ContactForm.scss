@@ -1,0 +1,98 @@
+@import './settings/colors';
+@import './settings/media';
+
+.contact-form {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    &::after {
+        content: "";
+        background-image: url(../assets/Background-image.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.2;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+        @media #{$laptop} {
+            opacity: 0.1;
+        }
+        @media #{$tablet} {
+            opacity: 0.1;
+        }
+    }
+
+    &-wrapper3 {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        .contact-form-wrapper {
+                width: 40%;
+
+            .form {
+                margin-top: 50px;
+                width: 100%;
+
+                &-section {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                }
+
+                &-group {
+                    margin-top: 10px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .many:last-of-type {
+                    margin-left: 20px;
+                }
+
+                label {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+
+                input, textarea {
+                    padding: 10px 10px 2px 1px;
+                    border: none;
+                    border-bottom: 0.75px solid $c-grey;
+                    background-color: transparent;
+                }
+
+                ::placeholder {
+                    color:#3C3C3C26;
+                    font-size: 18px;
+                }
+
+                textarea {
+                    resize: none;
+                    overflow: hidden;
+                }
+
+
+                button {
+                    width: 150px;
+                    height: 50px;
+                    float: right;
+                    margin-top: 20px;
+                    font-size: 18px;
+                    padding: 15px;
+                    background-color: transparent;
+                    border: 0.75px solid $c-grey;
+                }
+            }
+        }
+    }
+}
+
