@@ -1,0 +1,31 @@
+@import './settings/media';
+@import "settings/colors";
+@import "settings/fonts";
+
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+    &-item {
+        margin: 0 10px;
+    }
+
+    &-button {
+        width: 2.25em;
+        height: 2.75em;
+        font-size: 18px;
+        font-family: $font-base;
+        color: $c-grey;
+        background-color: transparent;
+        border: 1px solid transparent;
+        outline: none;
+        cursor: pointer;
+
+        
+        // &:focus {
+        //     outline: 1px solid #707070;
+        // }
+    }
+}
