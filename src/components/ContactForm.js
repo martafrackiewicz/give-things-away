@@ -8,14 +8,38 @@ const ContactForm = () => {
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userMessage, setUserMessage] = useState("");
+    const [nameError, setNameError] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [messageError, setMessageError] = useState("");
 
     const userNameHandler = (e) => {
-        setUserName(e.target.value)
-        console.log(userName);
+        setUserName((e.target.value).trim());
+    }
+
+    const nameValidation = () => {
+        if (userName.trim().indexOf(' ') != -1) {
+            setNameError("Podane imię jest nieprawidłowe!"); //check if name has more than one word
+        } else {
+            setNameError("");
+        }
     }
 
     const userEmailHandler = (e) => {
-        setUserEmail(e.target.value)
+        setUserEmail((e.target.value).trim());
+    }
+
+    const emailValidation = () => {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!re.test(userEmail)) {
+            setEmailError("Podany email jest nieprawidłowy!");
+        } else {
+            setEmailError("");
+        }
+    }
+
+    const resize = (area) => {
+        area.style.height = 'auto';
+        area.style.height = area.scrollHeight + 'px';
     }
 
     const userMessageHandler = (e) => {
@@ -25,9 +49,12 @@ const ContactForm = () => {
         }
     }
 
-    function resize(area) {
-        area.style.height = 'auto';
-        area.style.height = area.scrollHeight + 'px';
+    const messageValidation = () => {
+        if (userMessage.length < 120) {
+            setMessageError("Wiadomość musi mieć co najmniej 120 znaków!");
+        } else {
+            setMessageError("");
+        }
     }
 
     const handleSubmit = (e) => {
@@ -45,12 +72,16 @@ const ContactForm = () => {
                                 <div className="form-group many">
                                     <label htmlFor="name">Wpisz swoje imię</label>
                                     <input type="text" id="name" name="name" placeholder="Krzysztof"
-                                       onChange={(e) => userNameHandler(e)} required />
+                                       onChange={(e) => userNameHandler(e)}
+                                       onBlur={nameValidation} />
+                                    {nameError !== "" ? <p className="invalid-input">{nameError}</p> : null}
                                 </div>
                                 <div className="form-group many">
                                     <label htmlFor="email">Wpisz swój email</label>
                                     <input type="email" id="email" name="email" placeholder="abc@xyz.pl"
-                                        onChange={(e) => userEmailHandler(e)} required />
+                                        onChange={(e) => userEmailHandler(e)}
+                                        onBlur={emailValidation} />
+                                    {emailError !== "" ? <p className="invalid-input">{emailError}</p> : null}
                                 </div>
                             </div>
                             <div className="form-section">
@@ -60,7 +91,8 @@ const ContactForm = () => {
                                         name="message"
                                         placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ipsum quam."
                                         onChange={(e) => userMessageHandler(e)}
-                                        required />
+                                        onBlur={messageValidation} />
+                                    {messageError !== "" ? <p className="invalid-input">{messageError}</p> : null}
                                 </div>
                             </div>
                             <button type="submit">Wyślij</button>
