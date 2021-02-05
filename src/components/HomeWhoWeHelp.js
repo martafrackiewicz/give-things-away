@@ -8,9 +8,10 @@ const HomeWhoWeHelp = () => {
     const [foundations, setFoundations] = useState([]);
     const [organizations, setOrganizations] = useState([]);
     const [locals, setLocals] = useState([]);
-    const [clickedButton, setClickedButton] = useState("");
+    const [activeButtonName, setActiveButtonName] = useState("Fundacjom");
+    const [prevActiveButtonClass, setPrevActiveButtonClass] = useState();
 
-    const buttons = ["Fundacjom", "Organizacjom pozarządowym", "Lokalnym zbiórkom"]
+    const buttonNames = ["Fundacjom", "Organizacjom pozarządowym", "Lokalnym zbiórkom"]
 
     useEffect(() => {
         fetch("http://localhost:3001/foundations").then((response) => {
@@ -48,34 +49,40 @@ const HomeWhoWeHelp = () => {
         });
     }, [])
 
-    const handleSet = (e) => {
-        setClickedButton(e.target.innerText);
+    const handleSetName = (e) => {
+        setActiveButtonName(e.target.innerText);
+        console.log("button name after click", activeButtonName, "button class" , prevActiveButtonClass) 
     }
 
+    useEffect(() => {
+        setPrevActiveButtonClass(""); 
+        console.log("active now", activeButtonName, "button class", prevActiveButtonClass);
+    }, [activeButtonName]);
+
     return (
-        <section className="who-we-help">
+        <section className="who-we-help" id="who-we-help">
             <div className="who-we-help-wrapper">
                 <Heading text="Komu pomagamy" />
                 <nav className="who-we-help-nav">
                     <ul className="who-we-help-nav-list">
-                        {buttons.map((button, index) => {
+                        {buttonNames.map((button, index) => {
                             return <li key={index}
-                            className="who-we-help-nav-element"
-                            onClick={e => handleSet(e)}>
+                                className={`who-we-help-nav-element ${(activeButtonName === buttonNames[index]) ? "active" : ""}`}
+                            onClick={e => handleSetName(e)}>
                                 {button}
                             </li>
                         })}
                     </ul>
                 </nav>
-                {clickedButton === "Fundacjom" &&
+                {activeButtonName === "Fundacjom" &&
                 <WhoWeHelpTable
                     description="W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują."
                     array={foundations} /> }
-                {clickedButton === "Organizacjom pozarządowym" &&
+                {activeButtonName === "Organizacjom pozarządowym" &&
                 <WhoWeHelpTable
                     description="W naszej bazie znajdziesz organizacje, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują."
                     array={organizations} />}
-                {clickedButton === "Lokalnym zbiórkom" &&
+                {activeButtonName === "Lokalnym zbiórkom" &&
                 <WhoWeHelpTable
                     description="Pomagamy lokalnym zbiórkom. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują."
                     array={locals} />}
