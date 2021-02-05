@@ -10,7 +10,7 @@ const HomeWhoWeHelp = () => {
     const [locals, setLocals] = useState([]);
     const [activeButtonName, setActiveButtonName] = useState("Fundacjom");
     const [prevActiveButtonClass, setPrevActiveButtonClass] = useState();
-
+    
     const buttonNames = ["Fundacjom", "Organizacjom pozarządowym", "Lokalnym zbiórkom"]
 
     useEffect(() => {
@@ -59,6 +59,7 @@ const HomeWhoWeHelp = () => {
         console.log("active now", activeButtonName, "button class", prevActiveButtonClass);
     }, [activeButtonName]);
 
+   
     return (
         <section className="who-we-help" id="who-we-help">
             <div className="who-we-help-wrapper">
