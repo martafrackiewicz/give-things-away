@@ -43,19 +43,19 @@ const ContactForm = () => {
                         <form className="form" onSubmit={e => handleSubmit(e)}>
                             <div className="form-section">
                                 <div className="form-group many">
-                                    <label for="name">Wpisz swoje imię</label>
+                                    <label htmlFor="name">Wpisz swoje imię</label>
                                     <input type="text" id="name" name="name" placeholder="Krzysztof"
                                        onChange={(e) => userNameHandler(e)} required />
                                 </div>
                                 <div className="form-group many">
-                                    <label for="email">Wpisz swój email</label>
+                                    <label htmlFor="email">Wpisz swój email</label>
                                     <input type="email" id="email" name="email" placeholder="abc@xyz.pl"
                                         onChange={(e) => userEmailHandler(e)} required />
                                 </div>
                             </div>
                             <div className="form-section">
                                 <div className="form-group">
-                                    <label for="message">Wpisz swoją wiadomość</label>
+                                    <label htmlFor="message">Wpisz swoją wiadomość</label>
                                     <textarea id="message"
                                         name="message"
                                         placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ipsum quam."
