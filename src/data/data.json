@@ -57,6 +57,16 @@
             "name": "Organizacja \"Bez domu\"",
             "description": "Lorem ipsum dolor sit amet dolor. Donec iaculis. Pellentesque placerat.",
             "things": "ubrania, meble, zabawki, jedzenie"
+        },
+        {
+            "name": "Organizacja \"Dla dorosłych\"",
+            "description": "Lorem ipsum dolor sit amet dolor. Donec iaculis. Pellentesque placerat.",
+            "things": "ubrania, jedzenie, ciepłe koce"
+        },
+        {
+            "name": "Organizacja \"Dla zdrowia\"",
+            "description": "Lorem ipsum dolor sit amet dolor. Donec iaculis. Pellentesque placerat.",
+            "things": "ubrania, meble, zabawki, jedzenie"
         }
     ],
     "locals": [
