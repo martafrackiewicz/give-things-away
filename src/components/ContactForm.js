@@ -59,6 +59,27 @@ const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(userName, userEmail)
+        const data = {
+            name: userName,
+            email: userEmail,
+            message: userMessage,
+        }
+        
+        fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
     
     return (
