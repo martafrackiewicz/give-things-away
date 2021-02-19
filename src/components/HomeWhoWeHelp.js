@@ -13,7 +13,7 @@ const HomeWhoWeHelp = () => {
     const buttonNames = ["Fundacjom", "Organizacjom pozarządowym", "Lokalnym zbiórkom"]
 
     useEffect(() => {
-        fetch("http://localhost:3001/foundations").then((response) => {
+        fetch("https://my-json-server.typicode.com/martafrackiewicz/who-we-help-data/foundations").then((response) => {
                 var contentType = response.headers.get("content-type");
                 if (contentType && contentType.indexOf("application/json") !== -1) {
                     return response.json().then(function (json) {
@@ -24,7 +24,7 @@ const HomeWhoWeHelp = () => {
                     console.log("Oops, we haven't got JSON!");
                 }
             });
-        fetch("http://localhost:3001/organizations").then((response) => {
+        fetch("https://my-json-server.typicode.com/martafrackiewicz/who-we-help-data/organizations").then((response) => {
             var contentType = response.headers.get("content-type");
             if (contentType && contentType.indexOf("application/json") !== -1) {
                 return response.json().then(function (json) {
@@ -35,7 +35,7 @@ const HomeWhoWeHelp = () => {
                 console.log("Oops, we haven't got JSON!");
             }
         });
-        fetch("http://localhost:3001/locals").then((response) => {
+        fetch("https://my-json-server.typicode.com/martafrackiewicz/who-we-help-data/locals").then((response) => {
             var contentType = response.headers.get("content-type");
             if (contentType && contentType.indexOf("application/json") !== -1) {
                 return response.json().then(function (json) {
