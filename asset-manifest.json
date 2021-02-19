@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/give-things-away/static/css/main.cbdfb6c0.chunk.css",
-    "main.js": "/give-things-away/static/js/main.c81fcbc1.chunk.js",
-    "main.js.map": "/give-things-away/static/js/main.c81fcbc1.chunk.js.map",
+    "main.js": "/give-things-away/static/js/main.9d263293.chunk.js",
+    "main.js.map": "/give-things-away/static/js/main.9d263293.chunk.js.map",
     "runtime-main.js": "/give-things-away/static/js/runtime-main.979e8036.js",
     "runtime-main.js.map": "/give-things-away/static/js/runtime-main.979e8036.js.map",
     "static/js/2.9d39b601.chunk.js": "/give-things-away/static/js/2.9d39b601.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.979e8036.js",
     "static/js/2.9d39b601.chunk.js",
     "static/css/main.cbdfb6c0.chunk.css",
-    "static/js/main.c81fcbc1.chunk.js"
+    "static/js/main.9d263293.chunk.js"
   ]
 }
