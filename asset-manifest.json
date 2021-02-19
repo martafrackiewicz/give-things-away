@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.18f376fc.chunk.css",
+    "main.js": "/static/js/main.c81fcbc1.chunk.js",
+    "main.js.map": "/static/js/main.c81fcbc1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3f31fa17.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3f31fa17.js.map",
+    "static/js/2.9d39b601.chunk.js": "/static/js/2.9d39b601.chunk.js",
+    "static/js/2.9d39b601.chunk.js.map": "/static/js/2.9d39b601.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.18f376fc.chunk.css.map": "/static/css/main.18f376fc.chunk.css.map",
+    "static/js/2.9d39b601.chunk.js.LICENSE.txt": "/static/js/2.9d39b601.chunk.js.LICENSE.txt",
+    "static/media/ContactForm.scss": "/static/media/Background-image.dd60cf41.png",
+    "static/media/Heading.scss": "/static/media/Decoration.aad75271.svg",
+    "static/media/HomeHeader.scss": "/static/media/Home-Hero-Image.0c4f237f.jpg",
+    "static/media/HomeAboutUs.scss": "/static/media/People.f5eee084.png",
+    "static/media/Signature.c2a96569.svg": "/static/media/Signature.c2a96569.svg",
+    "static/media/HomeThreeColumns.scss": "/static/media/three-columns-bg.54dcd134.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3f31fa17.js",
+    "static/js/2.9d39b601.chunk.js",
+    "static/css/main.18f376fc.chunk.css",
+    "static/js/main.c81fcbc1.chunk.js"
+  ]
+}
