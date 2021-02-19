@@ -6,7 +6,7 @@ This is the application to promote charity and make a possibility to give needle
 Available here: https://martafrackiewicz.github.io/give-things-away/
 
 ## Technologies
-HTML, CSS, Sass, RWD, JavaScript, React
+HTML, CSS, Sass, RWD, JavaScript, React, JSON Server
 
 ## Features
 * getting informations about the main goals of the charity project
