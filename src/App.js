@@ -4,7 +4,7 @@ import Home from './components/Home';
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/give-things-away">
             <Route exact path='/' component={Home} />
         </BrowserRouter>
     )
