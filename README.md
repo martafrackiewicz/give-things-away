@@ -3,6 +3,8 @@
 ## About
 This is the application to promote charity and make a possibility to give needless things away. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Available here: https://martafrackiewicz.github.io/give-things-away/
+
 ## Technologies
 HTML, CSS, Sass, RWD, JavaScript, React
 
