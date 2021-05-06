@@ -17,7 +17,7 @@ const ContactForm = () => {
     }
 
     const nameValidation = () => {
-        if (userName.trim().indexOf(' ') != -1) {
+        if (userName.trim().indexOf(' ') !== -1) {
             setNameError("Podane imię jest nieprawidłowe!"); //check if name has more than one word
         } else {
             setNameError("");
@@ -29,7 +29,7 @@ const ContactForm = () => {
     }
 
     const emailValidation = () => {
-        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!re.test(userEmail)) {
             setEmailError("Podany email jest nieprawidłowy!");
         } else {

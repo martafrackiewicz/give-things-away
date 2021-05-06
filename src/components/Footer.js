@@ -9,8 +9,8 @@ const Footer = () => {
             <footer className="footer">
                 <small className="footer-copy">Project by Coders Lab</small>
                 <div className="footer-social">
-                    <a className="link" href="https://www.facebook.com/CodersLabSzkolaIT/"><img src={facebook}></img></a>
-                    <a className="link" href="https://www.instagram.com/coders.lab/?hl=pl"><img src={instagram}></img></a>
+                    <a className="link" href="https://www.facebook.com/CodersLabSzkolaIT/"><img src={facebook} alt="facebook icon"></img></a>
+                    <a className="link" href="https://www.instagram.com/coders.lab/?hl=pl"><img src={instagram} alt="instagram icon"></img></a>
                 </div>
             </footer>
         </div>

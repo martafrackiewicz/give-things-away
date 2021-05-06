@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Link as NavLink, animateScroll as scroll } from "react-scroll";
+import { Link as NavLink } from "react-scroll";
 import "../scss/HomeHeaderNav.scss";
 
 const HeaderNav = () => {
