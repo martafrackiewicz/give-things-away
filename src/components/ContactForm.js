@@ -11,6 +11,10 @@ const ContactForm = () => {
     const [nameError, setNameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [messageError, setMessageError] = useState("");
+    const [submitInfo, setSubmitInfo] = useState({
+        message: "",
+        status: ""
+    });
 
     const userNameHandler = (e) => {
         setUserName((e.target.value).trim());
@@ -59,6 +63,11 @@ const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setUserEmail("");
+        setUserName("");
+        setUserMessage("");
+        document.getElementById("message").style.height = 'auto';
+        setSubmitInfo({message: "", status: ""});
         const data = {
             name: userName,
             email: userEmail,
@@ -75,6 +84,11 @@ const ContactForm = () => {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
+                if (data.status === 'success') {
+                    setSubmitInfo({message: "Wiadomość została wysłana", status: "success"})
+                } else {
+                    setSubmitInfo({message: "Wiadomość nie została wysłana", status: "error"});
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -88,19 +102,22 @@ const ContactForm = () => {
                     <div className="contact-form-wrapper">
                         <Heading text="Skontaktuj się z nami" />
                         <form className="form" onSubmit={e => handleSubmit(e)}>
+                            {submitInfo.status !== "success" ? 
+                                <p className="error-input">{submitInfo.message}</p> : 
+                                <p className="success-input">{submitInfo.message}</p>}
                             <div className="form-section">
                                 <div className="form-group many">
                                     <label htmlFor="name">Wpisz swoje imię</label>
                                     <input type="text" id="name" name="name" placeholder="Krzysztof"
                                        onChange={(e) => userNameHandler(e)}
-                                       onBlur={nameValidation} />
+                                       onBlur={nameValidation} value={userName} />
                                     {nameError !== "" ? <p className="invalid-input">{nameError}</p> : null}
                                 </div>
                                 <div className="form-group many">
                                     <label htmlFor="email">Wpisz swój email</label>
                                     <input type="email" id="email" name="email" placeholder="abc@xyz.pl"
                                         onChange={(e) => userEmailHandler(e)}
-                                        onBlur={emailValidation} />
+                                        onBlur={emailValidation} value={userEmail} />
                                     {emailError !== "" ? <p className="invalid-input">{emailError}</p> : null}
                                 </div>
                             </div>
@@ -111,7 +128,7 @@ const ContactForm = () => {
                                         name="message"
                                         placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ipsum quam."
                                         onChange={(e) => userMessageHandler(e)}
-                                        onBlur={messageValidation} />
+                                        onBlur={messageValidation} value={userMessage} />
                                     {messageError !== "" ? <p className="invalid-input">{messageError}</p> : null}
                                 </div>
                             </div>

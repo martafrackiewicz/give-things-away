@@ -40,6 +40,22 @@
                 margin-top: 50px;
                 width: 100%;
 
+                .success-input {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: green;
+                    padding-bottom: 20px;
+                    text-align: center;
+                }
+
+                .error-input {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: red;
+                    padding-bottom: 20px;
+                    text-align: center;
+                }
+
                 &-section {
                     display: flex;
                     justify-content: center;
