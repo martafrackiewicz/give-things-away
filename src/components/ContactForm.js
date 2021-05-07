@@ -23,6 +23,8 @@ const ContactForm = () => {
     const nameValidation = () => {
         if (userName.trim().indexOf(' ') !== -1) {
             setNameError("Podane imię jest nieprawidłowe!"); //check if name has more than one word
+        } else if (userName === "") {
+            setNameError("Imię nie może być puste!");
         } else {
             setNameError("");
         }
@@ -34,7 +36,9 @@ const ContactForm = () => {
 
     const emailValidation = () => {
         const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (!re.test(userEmail)) {
+        if (userEmail === "") {
+            setEmailError("Email nie może być pusty!");
+        } else if (!re.test(userEmail)) {
             setEmailError("Podany email jest nieprawidłowy!");
         } else {
             setEmailError("");
@@ -63,9 +67,9 @@ const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setUserEmail("");
-        setUserName("");
-        setUserMessage("");
+        nameValidation();
+        emailValidation();
+        messageValidation();
         document.getElementById("message").style.height = 'auto';
         setSubmitInfo({message: "", status: ""});
         const data = {
@@ -86,6 +90,9 @@ const ContactForm = () => {
                 console.log('Success:', data);
                 if (data.status === 'success') {
                     setSubmitInfo({message: "Wiadomość została wysłana", status: "success"})
+                    setUserEmail("");
+                    setUserName("");
+                    setUserMessage("");
                 } else {
                     setSubmitInfo({message: "Wiadomość nie została wysłana", status: "error"});
                 }
