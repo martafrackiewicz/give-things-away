@@ -18,7 +18,6 @@ const HomeWhoWeHelp = () => {
                 if (contentType && contentType.indexOf("application/json") !== -1) {
                     return response.json().then(function (json) {
                         setFoundations(json);
-                        console.log(json);
                     });
                 } else {
                     console.log("Oops, we haven't got JSON!");
@@ -29,7 +28,6 @@ const HomeWhoWeHelp = () => {
             if (contentType && contentType.indexOf("application/json") !== -1) {
                 return response.json().then(function (json) {
                     setOrganizations(json);
-                    console.log(json);
                 });
             } else {
                 console.log("Oops, we haven't got JSON!");
@@ -40,7 +38,6 @@ const HomeWhoWeHelp = () => {
             if (contentType && contentType.indexOf("application/json") !== -1) {
                 return response.json().then(function (json) {
                     setLocals(json);
-                    console.log(json);
                 });
             } else {
                 console.log("Oops, we haven't got JSON!");
