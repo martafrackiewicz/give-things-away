@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/give-things-away/static/css/main.cbdfb6c0.chunk.css",
-    "main.js": "/give-things-away/static/js/main.6791e459.chunk.js",
-    "main.js.map": "/give-things-away/static/js/main.6791e459.chunk.js.map",
+    "main.css": "/give-things-away/static/css/main.32e1f00b.chunk.css",
+    "main.js": "/give-things-away/static/js/main.5ff9ee8b.chunk.js",
+    "main.js.map": "/give-things-away/static/js/main.5ff9ee8b.chunk.js.map",
     "runtime-main.js": "/give-things-away/static/js/runtime-main.979e8036.js",
     "runtime-main.js.map": "/give-things-away/static/js/runtime-main.979e8036.js.map",
     "static/js/2.9d39b601.chunk.js": "/give-things-away/static/js/2.9d39b601.chunk.js",
     "static/js/2.9d39b601.chunk.js.map": "/give-things-away/static/js/2.9d39b601.chunk.js.map",
     "index.html": "/give-things-away/index.html",
-    "static/css/main.cbdfb6c0.chunk.css.map": "/give-things-away/static/css/main.cbdfb6c0.chunk.css.map",
+    "static/css/main.32e1f00b.chunk.css.map": "/give-things-away/static/css/main.32e1f00b.chunk.css.map",
     "static/js/2.9d39b601.chunk.js.LICENSE.txt": "/give-things-away/static/js/2.9d39b601.chunk.js.LICENSE.txt",
     "static/media/ContactForm.scss": "/give-things-away/static/media/Background-image.dd60cf41.png",
     "static/media/Heading.scss": "/give-things-away/static/media/Decoration.aad75271.svg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.979e8036.js",
     "static/js/2.9d39b601.chunk.js",
-    "static/css/main.cbdfb6c0.chunk.css",
-    "static/js/main.6791e459.chunk.js"
+    "static/css/main.32e1f00b.chunk.css",
+    "static/js/main.5ff9ee8b.chunk.js"
   ]
 }
