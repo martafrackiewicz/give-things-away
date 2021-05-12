@@ -7,98 +7,116 @@ const ContactForm = () => {
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userMessage, setUserMessage] = useState("");
-    const [nameError, setNameError] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [messageError, setMessageError] = useState("");
-    const [submitInfo, setSubmitInfo] = useState({
+    const [nameValidation, setNameValidation] = useState();
+    const [emailValidation, setEmailValidation] = useState();
+    const [messageValidation, setMessageValidation] = useState();
+    const [sendingResult, setSendingResult] = useState({
         message: "",
         status: ""
     });
 
-    const userNameHandler = (e) => {
+    const userNameHandle = (e) => {
         setUserName((e.target.value).trim());
     }
 
-    const nameValidation = () => {
-        if (userName.trim().indexOf(' ') !== -1) {
-            setNameError("Podane imię jest nieprawidłowe!"); //check if name has more than one word
+    const checkIfNameHasMoreThanOneWord = (name) => {
+        return name.indexOf(' ') !== -1;
+    }
+
+    const validateName = () => {
+        if (checkIfNameHasMoreThanOneWord(userName)) {
+            setNameValidation("Podaj tylko jedno imię!");
         } else if (userName === "") {
-            setNameError("Imię nie może być puste!");
+            setNameValidation("Imię nie może być puste!");
         } else {
-            setNameError("");
+            setNameValidation("");
         }
     }
 
-    const userEmailHandler = (e) => {
+    const userEmailHandle = (e) => {
         setUserEmail((e.target.value).trim());
     }
 
-    const emailValidation = () => {
+    const validateEmail = () => {
         const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (userEmail === "") {
-            setEmailError("Email nie może być pusty!");
+            setEmailValidation("Email nie może być pusty!");
         } else if (!re.test(userEmail)) {
-            setEmailError("Podany email jest nieprawidłowy!");
+            setEmailValidation("Podany email jest nieprawidłowy!");
         } else {
-            setEmailError("");
+            setEmailValidation("");
         }
     }
 
-    const resize = (area) => {
-        area.style.height = 'auto';
-        area.style.height = area.scrollHeight + 'px';
-    }
+    const resize = (textArea) => {
+        textArea.style.height = 'auto';
+        textArea.style.height = textArea.scrollHeight + 'px';
+    } 
 
-    const userMessageHandler = (e) => {
-        setUserMessage(e.target.value)
-        if (e.target.scrollHeight < 270) {
+    const userMessageHandle = (e) => {
+        setUserMessage(e.target.value);
+        const maxScrollHeight = 270;
+        if (e.target.scrollHeight < maxScrollHeight) {
             resize(e.target);
         }
     }
 
-    const messageValidation = () => {
-        if (userMessage.length < 120) {
-            setMessageError("Wiadomość musi mieć co najmniej 120 znaków!");
+    const validateMessage = () => {
+        const maxMessageLength = 120;
+        if (userMessage.length < maxMessageLength) {
+            setMessageValidation(`Wiadomość musi mieć co najmniej ${maxMessageLength} znaków!`);
         } else {
-            setMessageError("");
+            setMessageValidation("");
         }
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        nameValidation();
-        emailValidation();
-        messageValidation();
-        document.getElementById("message").style.height = 'auto';
-        setSubmitInfo({message: "", status: ""});
-        const data = {
-            name: userName,
-            email: userEmail,
-            message: userMessage,
-        }
-        
+    const validateForm = () => {
+        validateName();
+        validateEmail();
+        validateMessage();
+    }
+
+    const clearForm = () => {
+        resize(document.getElementById("message"));
+        console.log(document.getElementById("message"))
+        setUserEmail("");
+        setUserName("");
+        setUserMessage("");
+    }
+
+    const sendMessage = (dataToSend) => {
         fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(dataToSend),
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
-                if (data.status === 'success') {
-                    setSubmitInfo({message: "Wiadomość została wysłana", status: "success"})
-                    setUserEmail("");
-                    setUserName("");
-                    setUserMessage("");
+                if (data.status === "success") {
+                    setSendingResult({ message: "Wiadomość została wysłana", status: "success" });
+                    clearForm();
                 } else {
-                    setSubmitInfo({message: "Wiadomość nie została wysłana", status: "error"});
+                    setSendingResult({ message: "Wiadomość nie została wysłana", status: "error" });
                 }
             })
-            .catch((error) => {
-                console.error('Error:', error);
+            .catch(error => {
+                setSendingResult({ message: "Wiadomość nie została wysłana", status: "error" });
             });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        validateForm();
+        
+        const dataToSend = {
+            name: userName,
+            email: userEmail,
+            message: userMessage,
+        }
+        
+        sendMessage(dataToSend);
     }
     
     return (
@@ -108,23 +126,23 @@ const ContactForm = () => {
                     <div className="contact-form-wrapper">
                         <Heading text="Skontaktuj się z nami" />
                         <form className="form" onSubmit={e => handleSubmit(e)}>
-                            {submitInfo.status !== "success" ? 
-                                <p className="error-input">{submitInfo.message}</p> : 
-                                <p className="success-input">{submitInfo.message}</p>}
+                            {sendingResult.status !== "success" ? 
+                                <p className="error-input">{sendingResult.message}</p> : 
+                                <p className="success-input">{sendingResult.message}</p>}
                             <div className="form-section">
                                 <div className="form-group many">
                                     <label htmlFor="name">Wpisz swoje imię</label>
                                     <input type="text" id="name" name="name" placeholder="Krzysztof"
-                                       onChange={(e) => userNameHandler(e)}
-                                       onBlur={nameValidation} value={userName} />
-                                    {nameError !== "" ? <p className="invalid-input">{nameError}</p> : null}
+                                       onChange={e => userNameHandle(e)}
+                                       onBlur={validateName} value={userName} />
+                                    {nameValidation ? <p className="invalid-input">{nameValidation}</p> : null}
                                 </div>
                                 <div className="form-group many">
                                     <label htmlFor="email">Wpisz swój email</label>
                                     <input type="email" id="email" name="email" placeholder="abc@xyz.pl"
-                                        onChange={(e) => userEmailHandler(e)}
-                                        onBlur={emailValidation} value={userEmail} />
-                                    {emailError !== "" ? <p className="invalid-input">{emailError}</p> : null}
+                                        onChange={e => userEmailHandle(e)}
+                                        onBlur={validateEmail} value={userEmail} />
+                                    {emailValidation ? <p className="invalid-input">{emailValidation}</p> : null}
                                 </div>
                             </div>
                             <div className="form-section">
@@ -133,9 +151,9 @@ const ContactForm = () => {
                                     <textarea id="message"
                                         name="message"
                                         placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ipsum quam."
-                                        onChange={(e) => userMessageHandler(e)}
-                                        onBlur={messageValidation} value={userMessage} />
-                                    {messageError !== "" ? <p className="invalid-input">{messageError}</p> : null}
+                                        onChange={e => userMessageHandle(e)}
+                                        onBlur={validateMessage} value={userMessage} />
+                                    {messageValidation ? <p className="invalid-input">{messageValidation}</p> : null}
                                 </div>
                             </div>
                             <button type="submit">Wyślij</button>
