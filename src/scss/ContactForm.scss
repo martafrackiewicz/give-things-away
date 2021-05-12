@@ -43,7 +43,7 @@
                 .success-input {
                     font-size: 20px;
                     font-weight: 600;
-                    color: green;
+                    color: $c-validation-success;
                     padding-bottom: 20px;
                     text-align: center;
                 }
@@ -51,7 +51,7 @@
                 .error-input {
                     font-size: 20px;
                     font-weight: 600;
-                    color: red;
+                    color: $c-validation-error;
                     padding-bottom: 20px;
                     text-align: center;
                 }
@@ -72,7 +72,7 @@
                     .invalid-input {
                         font-size: 10px;
                         font-weight: 600;
-                        color: red;
+                        color: $c-validation-error;
                         padding-top: 4px;
                     }
                 }
@@ -100,7 +100,7 @@
                 }
 
                 ::placeholder {
-                    color:#3C3C3C26;
+                    color:$c-placeholder;
                     font-size: 18px;
                 }
 
