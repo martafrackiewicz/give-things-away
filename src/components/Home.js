@@ -5,6 +5,7 @@ import HomeSimpleSteps from './HomeSimpleSteps';
 import HomeAboutUs from './HomeAboutUs';
 import HomeWhoWeHelp from './HomeWhoWeHelp';
 import ContactForm from './ContactForm';
+import Footer from './Footer';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <HomeAboutUs />
             <HomeWhoWeHelp />
             <ContactForm />
+            <Footer />
         </>
     )
 }

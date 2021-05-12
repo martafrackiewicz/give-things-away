@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Footer from './Footer'
 import Heading from './Heading';
 import "../scss/ContactForm.scss";
 
@@ -145,7 +144,6 @@ const ContactForm = () => {
                     
                 </div>
             </div>
-            <Footer />
         </section>
     )
 }
