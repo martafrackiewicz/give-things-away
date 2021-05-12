@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Heading from './Heading';
 import "../scss/ContactForm.scss";
 
@@ -14,6 +14,11 @@ const ContactForm = () => {
         message: "",
         status: ""
     });
+
+    const STATUS = {
+        success: "success",
+        error: "error"
+    }
 
     const userNameHandle = (e) => {
         setUserName((e.target.value).trim());
@@ -51,7 +56,7 @@ const ContactForm = () => {
     const resize = (textArea) => {
         textArea.style.height = 'auto';
         textArea.style.height = textArea.scrollHeight + 'px';
-    } 
+    }
 
     const userMessageHandle = (e) => {
         setUserMessage(e.target.value);
@@ -95,30 +100,30 @@ const ContactForm = () => {
             .then(response => response.json())
             .then(data => {
                 if (data.status === "success") {
-                    setSendingResult({ message: "Wiadomość została wysłana", status: "success" });
+                    setSendingResult({ message: "Wiadomość została wysłana", status: STATUS.success });
                     clearForm();
                 } else {
-                    setSendingResult({ message: "Wiadomość nie została wysłana", status: "error" });
+                    setSendingResult({ message: "Wiadomość nie została wysłana", status: STATUS.error });
                 }
             })
             .catch(error => {
-                setSendingResult({ message: "Wiadomość nie została wysłana", status: "error" });
+                setSendingResult({ message: "Wiadomość nie została wysłana", status: STATUS.error });
             });
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         validateForm();
-        
+
         const dataToSend = {
             name: userName,
             email: userEmail,
             message: userMessage,
         }
-        
+
         sendMessage(dataToSend);
     }
-    
+
     return (
         <section className="contact-form" id="contact-form">
             <div className="container">
@@ -126,15 +131,15 @@ const ContactForm = () => {
                     <div className="contact-form-wrapper">
                         <Heading text="Skontaktuj się z nami" />
                         <form className="form" onSubmit={e => handleSubmit(e)}>
-                            {sendingResult.status !== "success" ? 
-                                <p className="error-input">{sendingResult.message}</p> : 
+                            {sendingResult.status !== STATUS.success ?
+                                <p className="error-input">{sendingResult.message}</p> :
                                 <p className="success-input">{sendingResult.message}</p>}
                             <div className="form-section">
                                 <div className="form-group many">
                                     <label htmlFor="name">Wpisz swoje imię</label>
                                     <input type="text" id="name" name="name" placeholder="Krzysztof"
-                                       onChange={e => userNameHandle(e)}
-                                       onBlur={validateName} value={userName} />
+                                        onChange={e => userNameHandle(e)}
+                                        onBlur={validateName} value={userName} />
                                     {nameValidation ? <p className="invalid-input">{nameValidation}</p> : null}
                                 </div>
                                 <div className="form-group many">
@@ -159,7 +164,7 @@ const ContactForm = () => {
                             <button type="submit">Wyślij</button>
                         </form>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
